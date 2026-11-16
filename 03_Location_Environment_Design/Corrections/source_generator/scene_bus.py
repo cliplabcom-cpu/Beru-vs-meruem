@@ -15,7 +15,7 @@ YOUT = -0.85      # road level seen outside (floor is 0.85 m above the road)
 
 
 def cam_d1():
-    return dict(pos=(0.0, 1.5, 0.35), yaw=0.0, pitch=0.0, hfov=70.0)
+    return dict(pos=(0.0, 1.5, -2.0), yaw=0.0, pitch=0.0, hfov=62.0)
 
 
 def cam_d2():
@@ -23,7 +23,7 @@ def cam_d2():
 
 
 def cam_d4():
-    return dict(pos=(0.0, 1.55, 0.35), yaw=0.0, pitch=0.0, hfov=70.0)
+    return dict(pos=(0.0, 1.55, -1.6), yaw=0.0, pitch=0.0, hfov=58.0)
 
 
 # --------------------------------------------------------------------------------------------- outside world seen through glass
@@ -52,8 +52,8 @@ def outside(R):
                     if wy + 1.3 < h:
                         R.xrect(wz, wz + 1.0, wy, wy + 1.3, xf - 0.02 * xs, mix(c, (170, 195, 195), 0.5), n=nx, shade=False, cull=False)
             z += d + rng.uniform(0, 0.4)
-        for z in np.arange(-3, 100, 15.0):
-            R.sphere((xs * 5.2, 2.5 + YOUT, z), 0.95, mix(P['tree'], (205, 216, 214), min(0.55, 0.28 + z / 150)))
+        for z in np.arange(16, 100, 16.0):
+            R.sphere((xs * 5.2, 2.5 + YOUT, z), 0.75, mix(P['tree'], (205, 216, 214), min(0.55, 0.28 + z / 150)))
             R.line3d((xs * 5.2, YOUT + 0.12, z), (xs * 5.2, 1.7 + YOUT, z), mix(hx('8C6B52'), (205, 216, 214), 0.35), 0.12)
         for z in np.arange(3, 100, 22.0):
             R.line3d((xs * 3.6, YOUT + 0.12, z), (xs * 3.6, 3.6 + YOUT, z), mix(hx('7B8892'), (205, 216, 214), 0.3), 0.09)
@@ -63,34 +63,42 @@ def outside(R):
 # --------------------------------------------------------------------------------------------- interior
 def shell(R):
     # floor: aisle runner + darker seat zones; soft window-light patches
-    R.yrect(-HALFW, HALFW, -1, ZW, 0.0, hx('B4A892'), shade=False, cull=False)
-    R.yrect(-AISLE, AISLE, -1, ZW, 0.002, hx('A99D87'), shade=False, cull=False)
+    R.yrect(-HALFW, HALFW, -4, ZW, 0.0, hx('B4A892'), shade=False, cull=False)
+    R.yrect(-AISLE, AISLE, -4, ZW, 0.002, hx('A99D87'), shade=False, cull=False)
     for z in np.arange(0.4, ZW, 0.9):          # anti-slip strips
         R.yrect(-AISLE + 0.06, AISLE - 0.06, z, z + 0.05, 0.004, hx('B9AE98'), shade=False, cull=False)
     for xs in (-1, 1):
-        R.yrect(xs * (AISLE - 0.04), xs * AISLE, -1, ZW, 0.005, hx('D8C98E'), shade=False, cull=False)   # safety edge line
+        R.yrect(xs * (AISLE - 0.04), xs * AISLE, -4, ZW, 0.005, hx('D8C98E'), shade=False, cull=False)   # safety edge line
     for z in np.arange(0.9, ZW - 1, 2.4):
         R.shadow([(-0.35, 0.006, z), (0.45, 0.006, z + 0.5), (0.45, 0.006, z + 1.3), (-0.35, 0.006, z + 0.8)], 0.15, 9, tint=(255, 246, 222))
     # ceiling + warm light strips + side cove panels
-    R.yrect(-HALFW, HALFW, -1, ZW, CEIL, hx('EDE6D2'), n=(0, -1, 0), shade=False, cull=False)
+    R.yrect(-HALFW, HALFW, -4, ZW, CEIL, hx('EDE6D2'), n=(0, -1, 0), shade=False, cull=False)
     for xs in (-1, 1):
-        R.yrect(xs * 0.50, xs * 0.72, -1, ZW, CEIL - 0.003, hx('FFF5DA'), n=(0, -1, 0), shade=False, cull=False)
-        R.poly([(xs * 0.92, CEIL, -1), (xs * 0.92, CEIL, ZW), (xs * HALFW, 2.02, ZW), (xs * HALFW, 2.02, -1)], hx('E6DEC8') if xs > 0 else hx('D9D2BF'), (-xs * 0.7, -0.7, 0), shade=False, cull=False)
+        R.yrect(xs * 0.50, xs * 0.72, -4, ZW, CEIL - 0.003, hx('FFF5DA'), n=(0, -1, 0), shade=False, cull=False)
+        R.poly([(xs * 0.92, CEIL, -4), (xs * 0.92, CEIL, ZW), (xs * HALFW, 2.02, ZW), (xs * HALFW, 2.02, -4)], hx('E6DEC8') if xs > 0 else hx('D9D2BF'), (-xs * 0.7, -0.7, 0), shade=False, cull=False)
     # side walls: lower panel, window band with pillars, upper return
     for xs in (-1, 1):
         wc = hx('E1D8C0') if xs > 0 else hx('C9C4B6')
         nx = (-xs, 0, 0)
         x = xs * HALFW
-        R.xrect(-1, ZW, 0.0, 0.84, x, mix(wc, (150, 120, 96), 0.18), n=nx, shade=False, cull=False)
-        R.xrect(-1, ZW, 0.84, 0.90, x, mix(wc, (255, 250, 238), 0.25), n=nx, shade=False, cull=False)
+        R.xrect(-4, ZW, 0.0, 0.84, x, mix(wc, (150, 120, 96), 0.18), n=nx, shade=False, cull=False)
+        R.xrect(-4, ZW, 0.84, 0.90, x, mix(wc, (255, 250, 238), 0.25), n=nx, shade=False, cull=False)
         # glass (light outside) + frames
-        R.xrect(-1, ZW, 0.90, 2.02, x - xs * 0.01, hx('DDEBE8'), n=nx, shade=False, cull=False, alpha=0.30)
+        R.xrect(-4, ZW, 0.90, 2.02, x - xs * 0.01, hx('DDEBE8'), n=nx, shade=False, cull=False, alpha=0.30)
         for z in np.arange(-0.6, ZW, 1.1):
             R.xrect(z, z + 0.10, 0.84, 2.04, x - xs * 0.02, mix(wc, (245, 238, 218), 0.4), n=nx, shade=False, cull=False)
         # faint reflection streaks on the glass
         for z in np.arange(0.2, ZW - 1, 2.2):
             R.poly([(x - xs * 0.02, 1.0, z), (x - xs * 0.02, 1.0, z + 0.22), (x - xs * 0.02, 1.9, z + 0.62), (x - xs * 0.02, 1.9, z + 0.40)], (255, 255, 255), nx, shade=False, cull=False, alpha=0.10)
-        R.xrect(-1, ZW, 0.0, 0.05, x - xs * 0.02, mix(wc, (80, 70, 60), 0.35), n=nx, shade=False, cull=False)
+        R.xrect(-4, ZW, 0.0, 0.05, x - xs * 0.02, mix(wc, (80, 70, 60), 0.35), n=nx, shade=False, cull=False)
+    # double door on the right wall (entrance vestibule): frame, two glass leaves, step line
+    dz0, dz1 = 5.2, 6.5
+    R.xrect(dz0 - 0.06, dz1 + 0.06, 0.0, 2.08, HALFW - 0.03, hx('7E9A84'), n=(-1, 0, 0), shade=False, cull=False)
+    mid = (dz0 + dz1) / 2
+    for a, b in ((dz0 + 0.05, mid - 0.025), (mid + 0.025, dz1 - 0.05)):
+        R.xrect(a, b, 0.10, 2.0, HALFW - 0.04, hx('CFE0DC'), n=(-1, 0, 0), shade=False, cull=False)
+        R.poly([(HALFW - 0.045, 1.0, a + 0.05), (HALFW - 0.045, 1.0, a + 0.16), (HALFW - 0.045, 1.9, b - 0.10), (HALFW - 0.045, 1.9, b - 0.21)], (255, 255, 255), (-1, 0, 0), shade=False, cull=False, alpha=0.18)
+    R.yrect(HALFW - 0.5, HALFW, dz0, dz1, 0.01, hx('D8C98E'), shade=False, cull=False)
     # rear bulkhead is behind the camera. Front: windscreen frame (glass is the 'outside' showing through)
     R.zrect(-HALFW, HALFW, 0.0, 0.95, ZW, hx('B5A98F'), shade=False)               # cab front panel under the dash
     R.zrect(-HALFW, HALFW, 2.15, CEIL, ZW, hx('E4DCC6'), shade=False)               # header
@@ -101,19 +109,21 @@ def shell(R):
     R.zrect(-0.40, 0.15, 2.14, 2.18, ZW - 0.104, hx('7FB6B2'), shade=False)
 
 
-def seats(R, n=6, z0=1.05, pitch=0.86, zmin=-99, zmax=99):
+def seats(R, n=5, z0=1.45, pitch=0.84, zmin=-99, zmax=99, right_rows=2):
     rng = np.random.RandomState(4)
     for k in range(n):
         z = z0 + k * pitch
         if not (zmin <= z < zmax):
             continue
         for xs in (-1, 1):
+            if xs > 0 and k >= right_rows:        # entrance vestibule on the right: no seats beyond row 3
+                continue
             a, b = (xs * AISLE, xs * (HALFW - 0.03)) if xs > 0 else (xs * (HALFW - 0.03), xs * AISLE)
             col = jit(SAGE, rng, 3)
             # floor shadow
             R.shadow([(a, 0, z + 0.05), (b, 0, z + 0.05), (b, 0, z + 0.5), (a, 0, z + 0.5)], 0.22, 5)
             # riser under cushion
-            R.box(a + 0.04, 0.0, z + 0.14, b - 0.04, 0.46, z + 0.50, hx('8E9A88'))
+            R.box(a + 0.05, 0.0, z + 0.18, b - 0.05, 0.46, z + 0.48, mix(col, (70, 90, 70), 0.14))
             # cushion
             R.box(a, 0.44, z + 0.10, b, 0.52, z + 0.54, mix(col, (255, 255, 240), 0.10), top=mix(col, (255, 255, 240), 0.18))
             # backrest with a quiet headrest inset and darker cap
@@ -124,7 +134,7 @@ def seats(R, n=6, z0=1.05, pitch=0.86, zmin=-99, zmax=99):
             R.line3d((a, 1.12, z - 0.004), (b, 1.12, z - 0.004), mix(col, (70, 90, 70), 0.25), 0.012)
 
 
-def rails(R, z0=0.4, z1=8.7, poles=(1.9,)):
+def rails(R, z0=-3.6, z1=8.7, poles=(2.6,)):
     col = DSAGE
     for xs in (-1, 1):
         R.tube((xs * 0.66, 2.0, z0), (xs * 0.66, 2.0, z1), 0.022, col, n=10, caps=True)

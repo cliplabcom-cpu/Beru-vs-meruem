@@ -15,10 +15,10 @@ Applies to the 14 corrected references in this folder. Supplements (does not rep
 | Street (A) | A1/A3 share one camera (pos −2.4, 2.3, −15; same shopfronts, shelter, sign, clock) | Year 10 only adds: street trees, planters/window boxes, deeper-sage awning, gold sign band, arrivals screen, cycle lane, café set, shop-4 shutter, warmer sky |
 | Café (B) | Back wall, counter (x −1.9…2.4, z 5.7–6.5), Asha's gap at x 0.95 | Machine left, pastry case centre, terminal right of the gap; pendants stay inside the frame |
 | Market (C) | Stall row on z = 0, building wall at z = 10 | Asha's stall = centre stall with blade sign, sage/cream canopy, pot plants; neighbours have different canopies/products |
-| Bus (D) | Interior x ±1.2, z 0–9.4; exterior bus at the kerb beside the shelter | Sage seats, sage rails, cream ceiling with two light strips, driver pod on the left, validator on the right |
+| Bus (D) | Interior x ±1.2, z −4…9.4; exterior bus at the kerb beside the shelter | Sage seats (left 5 rows, right 2 rows), glass double door on the right wall at z 5.2–6.5, sage rails, cream ceiling with two light strips, driver pod on the left, validator on the right |
 
 ## Character cut-out limits (important for Phase 4)
 Characters in v2 are cut-outs of the APPROVED front / side / back views, scaled to metres. They are **placement and scale references, not acting poses**. Each is a flat card (no turnaround). Real animation needs the specialist character pipeline.
 
 ## Known geometric fact
-Approved front views are ~1.0 m (Emeka) / ~0.7 m (Sam) / ~0.8 m (Asha) wide with arms. The bus aisle is 1.06 m, so two characters cannot stand abreast in the aisle in a front view. D4 therefore uses profile views for Sam and Emeka on the front platform, and Asha in the aisle ahead of them.
+Approved front views are ~1.0 m (Emeka) / ~0.7 m (Sam) / ~0.8 m (Asha) wide with arms. The bus aisle is 1.06 m, so two characters cannot stand abreast in the aisle in a front view. D4 therefore uses profile views for Sam and Emeka at the front (Emeka in the door vestibule), and Asha in the aisle.

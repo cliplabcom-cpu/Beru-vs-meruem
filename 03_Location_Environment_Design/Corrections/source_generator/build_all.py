@@ -94,7 +94,7 @@ PORT = {
     'D1_bus_interior_main_9x16': (P_D1, cm((0.0, 1.5, 0.35), 0, 0.0, 48), 300),
     'D2_bus_driver_cabin_9x16': (P_D2, cm((0.12, 1.50, 5.2), -12, -3.0, 54), 300),
     'D3_bus_stop_exterior_9x16': (P_D3, cm((3.6, 1.65, -13.0), 0, 1.5, 42), 370),
-    'D4_bus_character_placement_9x16': (P_D4, cm((0.0, 1.55, 0.35), 0, 0.0, 46), 370),
+    'D4_bus_character_placement_9x16': (P_D4, cm((0.0, 1.55, -1.6), 0, 0.0, 40), 370),
 }
 
 
