@@ -1,0 +1,62 @@
+{
+ "sam_front": {
+  "h": 945,
+  "w": 389,
+  "ground_off": 1
+ },
+ "asha_front": {
+  "h": 881,
+  "w": 440,
+  "ground_off": 1
+ },
+ "emeka_front": {
+  "h": 1001,
+  "w": 548,
+  "ground_off": 1
+ },
+ "emeka_front_sheet": {
+  "h": 1051,
+  "w": 576,
+  "ground_off": 1
+ },
+ "emeka_side": {
+  "h": 1052,
+  "w": 333,
+  "ground_off": 1
+ },
+ "emeka_back": {
+  "h": 1051,
+  "w": 576,
+  "ground_off": 1
+ },
+ "sam_front_sheet": {
+  "h": 991,
+  "w": 408,
+  "ground_off": 1
+ },
+ "sam_side": {
+  "h": 991,
+  "w": 238,
+  "ground_off": 1
+ },
+ "sam_back": {
+  "h": 990,
+  "w": 410,
+  "ground_off": 1
+ },
+ "asha_apron_front": {
+  "h": 925,
+  "w": 462,
+  "ground_off": 1
+ },
+ "asha_apron_side": {
+  "h": 925,
+  "w": 269,
+  "ground_off": 1
+ },
+ "asha_apron_back": {
+  "h": 925,
+  "w": 462,
+  "ground_off": 1
+ }
+}
