@@ -1,7 +1,11 @@
 # New Rich Mentality
 
-This folder contains the current primary Rich Mentality document.
+This folder contains the current main project document:
 
-- `Rich Mentality - Production Bible v2.md` — current production bible.
+- `Rich Mentality - Production Bible v2.md`
 
-Use this as the main project direction. Supporting research, character references, environment references, storyboards and reusable production assets are organised under `03_Most_Important/`.
+## Important continuity check
+
+The current Production Bible v2 premise lock says the change applies to **every adult**. The later project direction established that it applies to **everyone**, including children and teenagers, with age-appropriate behaviour. This is an unresolved document conflict. Do not silently choose one; resolve it in the next Bible revision before final script production.
+
+Use this Bible as the main current document, while supporting research, character references, environment references and production material remain in `03_Most_Important/`.

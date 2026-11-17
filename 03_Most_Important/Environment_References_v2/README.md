@@ -1,9 +1,23 @@
-# Environment References v2
+# Environment References v2 — Latest Module 03 Delivery
 
-Reserved for the latest corrected environment references:
-- 14 landscape images (A1–D4)
-- 14 deliberately reframed 9:16 images
-- Updated contact sheet and vertical composition sheet
-- Updated scale chart and consistency notes
+This folder is the authoritative destination for the corrected Module 03 environment package.
 
-**Current status:** These v2 image files are described in `03_Correction_Report_v2.md`, but they are not present in the current GitHub main-branch file tree as of the organisation commit. This folder is intentionally a documented destination, not a claim that those images have already been uploaded.
+## Expected contents
+
+- 14 corrected 16:9 landscape renders (1920×1080)
+- 14 dedicated 9:16 vertical compositions (1080×1920)
+- Landscape contact sheet, vertical composition sheet, scale chart and before/after comparison
+- Delivery manifest, correction report, consistency notes and animation-readiness evaluation
+- Rebuildable procedural source generator and its required approved character cut-outs
+
+## Source package status
+
+The user supplied `Module03_Corrections_v2_final.zip`. Its contents were inspected. The archive contains the 28 renders, four sheets, four Markdown reports, 14 Python generator files, and 13 character cut-out PNGs plus `chars.json`.
+
+The image renders and source package are **not yet uploaded to this GitHub folder**. The current connected GitHub workflow can create text blobs, but this session cannot transfer the uploaded ZIP's binary file bytes into GitHub's binary blob API. Do not treat the archive manifest as proof that these images are already in the repository.
+
+## Animation-readiness warning
+
+These are layout/look references, not animation-ready scenes. The images are flattened compositions with baked-in character cut-outs and shadows. No motion test, layer separation, rigging or phone-hardware pipeline test was completed. Read `Reports/03_Animation_Readiness_Evaluation.md` before planning animation.
+
+The bus still has known visual limitations, especially D1's blocky seats and D2's washed-out cab glass. The aisle is 1.06 m; the report recommends single-file staging unless a wider vestibule is designed.

@@ -1,12 +1,12 @@
 # Most Important — Reusable Production Library
 
-This is the project's reusable production library. Prefer the latest approved assets here when developing storyboards, animation shots or future visual projects.
+This folder contains the strongest approved assets and source material to reuse in animation and future creative projects.
 
-- `Character_References/` — approved character designs, model sheets, colour references, expressions and design guide.
-- `Environment_References/` — environment guides, visual consistency rules, correction reports and QA comparisons.
-- `Environment_References_v2/` — destination for the corrected v2 environment images. The current GitHub tree does not yet contain the 14 v2 landscape images or 14 vertical renders described in the correction report; add them here only when they are actually uploaded and verified.
-- `Storyboard_and_Research/` — economic research, story bible and scene timing.
-- `Production_Guides/` — production reports and supporting documentation.
-- `Animation_Assets/` — reserved for genuinely reusable animation assets as they are created.
+- `Character_References/` — approved character model, colour and expression sheets plus the character design guide.
+- `Environment_References/` — original environment design rules, consistency guide and earlier correction history.
+- `Environment_References_v2/` — destination for the latest corrected Module 03 images, vertical compositions, QA reports and rebuildable source package. The reports are in `Reports/`; see that folder's README for the upload status.
+- `Storyboard_and_Research/` — Rich Mentality research and story material.
+- `Production_Guides/` — production reports and cross-project references.
+- `Animation_Assets/` — reusable animation tests and assets.
 
-Do not treat a report's description of an output as proof that the output file exists. Verify actual files before using them.
+Use the latest approved v2 environment references over the original images in `02_Old_Images/`. Do not mistake still-image layout approval for animation approval.
